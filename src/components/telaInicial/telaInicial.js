@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
 import NavBar from '../navbar/navbar';
+import CarouselInicio from './carousel/carousel';
+import LadoEsquerdo from './lado_esquerdo/lado_esquerdo';
+
+// ========== CSS ============
+
+import './telaInicial.css';
+
 
 
 class TelaInicial extends Component {
@@ -14,12 +21,12 @@ class TelaInicial extends Component {
                 <NavBar />
                 <div className="row" >
                     <div className="col-sm-12" >
-                        Meio
+                        <CarouselInicio />
                     </div>
                 </div>
-                <div className="row" >
-                    <div className="col-sm-2" > lado esquerdo</div>
-                    <div className="col-sm-10" > lado direito</div>   
+                <div className="row" style={{ marginTop: '18px' }} >
+                    <div className="col-sm-3" > <LadoEsquerdo /> </div>
+                    <div className="col-sm-9" > lado direito</div>   
                 </div>
             </div>
         );
