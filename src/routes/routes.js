@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {Route, Switch} from 'react-router-dom';
+import TelaInicial from '../components/telaInicial/telaInicial';
+
 
 class RouterMap extends Component {
     
@@ -7,7 +9,7 @@ class RouterMap extends Component {
     render(){
         return(
             <Switch>
-                <Route path="/"  />
+                <Route path="/" exact component={TelaInicial} />
             </Switch>
         );
     }

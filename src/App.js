@@ -2,25 +2,20 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/navbar/navbar';
+import { BrowserRouter } from 'react-router-dom';
+import RouterMap from './routes/routes';
+import TelaInicial from './components/telaInicial/telaInicial';
+
 
 class App extends Component {
   render() {
     return (
-      
-        <NavBar/>
-
         <BrowserRouter>
           <div className="App">
-            <header className="App-header">
-              <img src={logo} className="App-logo" alt="logo" />
-              <h1 className="App-title">Welcome to React</h1>
-            </header>
-            <p className="App-intro">
-              To get started, edit <code>src/App.js</code> and save to reload.
-            </p>
+            <RouterMap />
           </div>
         </BrowserRouter>
-        
+            
     );
   }
 }
