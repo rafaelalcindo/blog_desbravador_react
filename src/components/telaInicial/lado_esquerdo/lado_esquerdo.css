@@ -4,3 +4,9 @@
     width: 100%;
     border-radius: 5px;
 }
+
+.Menus {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}

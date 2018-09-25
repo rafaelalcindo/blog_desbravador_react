@@ -4,7 +4,7 @@ import './lado_esquerdo.css';
 const LadoEsquerdo = (props) => {
     return (
         <div className="todoLadoEsquerdo" >
-            <ul>
+            <ul className="Menus" >
                 <li>Link 1</li>
                 <li>Link 2</li>
                 <li>Link 3</li>
