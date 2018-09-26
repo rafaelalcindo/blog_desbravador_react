@@ -1,15 +1,9 @@
-
-.todoLadoEsquerdo {
-    border: 0px solid #666666;
+.todoLadoDireita {
+    
     width: 100%;
     border-radius: 5px;
     -webkit-box-shadow: -1px -1px 16px 1px rgba(212,212,212,0.75);
     -moz-box-shadow: -1px -1px 16px 1px rgba(212,212,212,0.75);
     box-shadow: -1px -1px 16px 1px rgba(212,212,212,0.75);
-}
-
-.Menus {
-    padding: 0px;
-    margin: 0px;
-    list-style: none;
+    padding: 6px;
 }
