@@ -3,6 +3,7 @@ import NavBar from '../navbar/navbar';
 import CarouselInicio from './carousel/carousel';
 import LadoEsquerdo from './lado_esquerdo/lado_esquerdo';
 import LadoDireito from './lado_direita/lado_direita';
+import blue_eagle from '../../assets/inicio/blue_eagle.jpg';
 
 // ========== CSS ============
 
@@ -20,14 +21,15 @@ class TelaInicial extends Component {
         return (
             <div>
                 <NavBar />
-                <div className="row" >
-                    <div className="col-sm-12" >
-                        <CarouselInicio />
+                <div >
+                    <div className="row" >
+                        <div className="col-sm-12 menu_inicial" style={{  height: '180px' }} >
+                            <h1>teste</h1>
+                        </div>
                     </div>
-                </div>
-                <div className="row" style={{ marginTop: '18px' }} >
-                    <div className="col-sm-3" > <LadoEsquerdo /> </div>
-                    <div className="col-sm-9" > <LadoDireito /> </div>   
+                    <div className="row" style={{ marginTop: '18px' }} >
+                        <div className="col-sm-12" > <LadoDireito /> </div>   
+                    </div>
                 </div>
             </div>
         );

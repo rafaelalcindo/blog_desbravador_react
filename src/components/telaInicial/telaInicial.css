@@ -1,5 +1,12 @@
-
-/* =================================== Bootstrap ========================================= */
+.menu_inicial {
+    /*background-image: url('../../assets/inicio/blue_eagle.jpg'); */
+    background-image: linear-gradient(to bottom right, #4d4dff, #ff4d4d);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: blue;
+}
+/* ============== modi Bootstrap ================  */
 .row {
     margin-right: 0px;
 }

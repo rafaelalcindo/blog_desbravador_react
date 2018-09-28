@@ -1,0 +1,29 @@
+.ADRA_categoria {
+    border: 2px solid #666666;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #262673;
+}
+
+.imagem_categoria {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+.toda_categoria_inicio{
+    margin-left: 0px;
+    margin-right: 0px;
+
+    padding-left: 140px;
+    padding-right: 140px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    -webkit-box-shadow: 0px 1px 16px 6px #DDDDDD; 
+    box-shadow: 0px 1px 16px 6px #DDDDDD;
+}
+
+.texto_categoria{
+   font-family: 'Gloria Hallelujah', cursive;
+}
