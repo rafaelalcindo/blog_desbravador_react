@@ -1,0 +1,31 @@
+.todoRodape {
+    width: 100%;
+    padding: 10px;
+    background-image: linear-gradient(to bottom right, #4d4dff, #ff4d4d);
+}
+
+.logo_Rodape {
+    width: 110px;
+    height: 80px;
+}
+
+.lista_rodape {
+    text-align: justify;
+    list-style: none;
+}
+
+.lista_rodape li {
+    padding: 6px;
+}
+
+.rodape_titulo {
+   font-family: 'Acme', sans-serif;
+}
+
+
+/* ==================== Bootstrap =============== */
+
+
+.row {
+    margin-right: 0px;
+}

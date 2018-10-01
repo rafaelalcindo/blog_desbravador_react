@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
+
 import NavBar from '../navbar/navbar';
+import Rodape from '../rodape/rodape';
+
 import CarouselInicio from './carousel/carousel';
 import LadoEsquerdo from './lado_esquerdo/lado_esquerdo';
 import LadoDireito from './lado_direita/lado_direita';
@@ -31,6 +34,7 @@ class TelaInicial extends Component {
                         <div className="col-sm-12" > <LadoDireito /> </div>   
                     </div>
                 </div>
+                <Rodape />
             </div>
         );
     }
