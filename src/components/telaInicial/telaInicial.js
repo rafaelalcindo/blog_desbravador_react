@@ -25,12 +25,12 @@ class TelaInicial extends Component {
             <div>
                 <NavBar />
                 <div >
-                    <div className="row" >
-                        <div className="col-sm-12 menu_inicial" style={{  height: '180px' }} >
+                    <div style={{marginRight: '0px'}} className="row" >
+                        <div className="col-sm-12 menu_inicial" style={{  height: '210px'}} >
                             <h1>teste</h1>
                         </div>
                     </div>
-                    <div className="row" style={{ marginTop: '18px' }} >
+                    <div style={{ marginTop: '18px', marginRight: '0px' }}  className="row" >
                         <div className="col-sm-12" > <LadoDireito /> </div>   
                     </div>
                 </div>

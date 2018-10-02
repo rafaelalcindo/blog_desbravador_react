@@ -20,7 +20,18 @@
 
 .rodape_titulo {
    font-family: 'Acme', sans-serif;
+   text-align: center;
 }
+
+.img_rede {
+    width: 60px;
+    height: 60px;
+}
+
+.rede_sociais_ul {
+    text-align: center;
+}
+
 
 
 /* ==================== Bootstrap =============== */

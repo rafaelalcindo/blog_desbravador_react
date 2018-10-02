@@ -1,0 +1,29 @@
+.categoria_card {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2%;
+    margin-bottom: 5%;
+}
+
+.categorImg {
+    width: 350px;
+    height: 350px;
+    float: left;
+}
+
+.nomeCategoria {
+    background-image: linear-gradient(to bottom right, #e600e6, #660066); 
+    color: white;
+    width: 470px;
+    height: 350px;
+    padding-top: 10%;
+    float: right;
+}
+
+.nomeCategoria h1 {
+    font-family: 'Acme', sans-serif;
+    font-size: 70px;    
+}
