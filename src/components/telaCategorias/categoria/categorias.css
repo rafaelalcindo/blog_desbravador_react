@@ -27,3 +27,24 @@
     font-family: 'Acme', sans-serif;
     font-size: 70px;    
 }
+
+
+.categorImg2 {
+    width: 350px;
+    height: 350px;
+    float: right;
+}
+
+.nomeCategoria2 {
+    background-image: linear-gradient(to bottom right, #4dd2ff, #0086b3); 
+    color: white;
+    width: 470px;
+    height: 350px;
+    padding-top: 4%;
+    float: left;
+}
+
+.nomeCategoria2 h1 {
+    font-family: 'Acme', sans-serif;
+    font-size: 70px;    
+}
