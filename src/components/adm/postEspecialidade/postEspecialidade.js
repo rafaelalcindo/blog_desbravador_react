@@ -13,6 +13,11 @@ class PostEspecialidade extends Component {
         return (
             <div>
                 <NavBar />
+                <div style={{marginRight: '0px'}} className="row" >
+                    <div className="col-sm-12 menu_inicial" style={{  height: '210px'}} >
+                        <h1>teste</h1>
+                    </div>
+                </div>
                     <FormEspecialidade />
                 <Rodape/>
             </div>
