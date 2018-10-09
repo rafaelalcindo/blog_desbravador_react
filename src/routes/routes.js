@@ -5,7 +5,9 @@ import TelaCategoria from '../components/telaCategorias/telaCategoria';
 import ListaEspecialidade from '../components/listaEspecialidade/listaEspecialidade';
 import cadaEspecialidade from  '../components/cadaEspecialidade/cadaEspecialidade';
 
+import Login from '../components/adm/login/login';
 import PostEspecialidade from '../components/adm/postEspecialidade/postEspecialidade';
+
 
 
 class RouterMap extends Component {
@@ -19,6 +21,7 @@ class RouterMap extends Component {
                 <Route path="/listaEspecialidade" component={ListaEspecialidade} />
                 <Route path="/cadaEspecialidade" component={cadaEspecialidade} />
 
+                <Route path="/login" component={Login} />
                 <Route path="/cadastrarEspecialidade" component={PostEspecialidade} />
             </Switch>
         );
