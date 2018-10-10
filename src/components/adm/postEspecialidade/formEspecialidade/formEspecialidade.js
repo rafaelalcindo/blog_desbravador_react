@@ -19,7 +19,13 @@ const formEspecialidade = (props) => {
                                 <input type="text" className="form-control" id="titulo" />
                             </div>
 
-                            
+                            <div>
+                                <label>Selecione a categoria da especialidade</label>
+                                <select className="form-control" >
+                                    <option>ADRA</option>
+                                    <option>Estudos da Natureza</option>
+                                </select>
+                            </div>   
 
                             <div>
                                 <label for="Requisitos">Requisitos</label>
