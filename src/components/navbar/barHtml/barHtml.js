@@ -37,7 +37,10 @@ class BarHtml extends Component {
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
                         <NavItem>
-                            <NavLink href="/components/">Components</NavLink>
+                            <NavLink href="/telaCategoria" >Categorias</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href="/login" >Login</NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
