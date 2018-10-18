@@ -5,6 +5,8 @@ import Rodape from '../rodape/rodape';
 
 import Categoria from './categoria/categorias';
 
+import categorias_logo_superior from '../../assets/imagem/categorias_logo_superior.png';
+
 import './telaCategoria.css';
 
 class TelaCategoria extends Component {
@@ -19,7 +21,9 @@ class TelaCategoria extends Component {
                 <div>
                     <div style={{marginRight: '0px'}} className="row" >
                         <div className="col-sm-12 menu_inicial" style={{ height: '210px' }} >
-                            <h1>Teste 02</h1>
+                            <h2 className="inicio_texto" >Tela de Categorias.</h2>
+
+                            <img className="imagemLogo" src={categorias_logo_superior} alt="desbravador" />
                         </div>
                     </div>
                     <div style={{ marginTop: '18px', marginRight: '0px' }}  className="row" >

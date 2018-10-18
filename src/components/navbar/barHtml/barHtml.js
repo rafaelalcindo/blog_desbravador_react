@@ -12,6 +12,8 @@ import {
     DropdownMenu,
     DropdownItem } from 'reactstrap';
 
+import logo_desbrava_nav from '../../../assets/imagem/navbar/logo_desbrava_nav.png';
+
 class BarHtml extends Component {
 
     constructor(props) {
@@ -32,6 +34,7 @@ class BarHtml extends Component {
         return(
             <div>
                 <Navbar color="primary" dark expand="md">
+                <NavbarBrand href="/"><img src={logo_desbrava_nav} style={styleImagem}  alt="imagem" /> </NavbarBrand>
                 <NavbarBrand href="/">Desbravadores</NavbarBrand>
                 <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
@@ -68,6 +71,12 @@ class BarHtml extends Component {
             </div>
         );
     }
+    
 }
+
+const styleImagem = {
+    height: '80px',
+    width: '80px'
+};
 
 export default BarHtml;

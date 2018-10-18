@@ -7,6 +7,21 @@
     background-color: blue;
 }
 
+.inicio_texto{
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 50px;
+    margin-top: 4%;
+    float:left;
+    color: white;
+    text-shadow: 4px 3px 8px #b3b3b3;
+}
+
+.imagemLogo {
+    width: 140px;
+    height: 180px;
+    margin-top: 1%;
+    float: right;
+}
 
 
 /* ============== modi Bootstrap ================  */
