@@ -5,6 +5,7 @@ import Rodape from '../rodape/rodape';
 import './listaEspecialidade.css';
 
 import mamiferos from '../../assets/logo_especialidades/estudos_da_natureza/mamiferos.png';
+import listaEspecialidade from '../../assets/imagem/listaEspecialidade.png';
 
 class ListaEspecialidade extends Component {
     constructor(props){
@@ -18,7 +19,9 @@ class ListaEspecialidade extends Component {
                 <NavBar/>
                 <div style={{marginRight: '0px'}} className="row" >
                     <div className="col-sm-12 menu_inicial" style={{ height: '210px' }} >
-                        <h1>Teste 02</h1>
+                        <h2 className="inicio_texto" > estudos da natureza</h2>
+
+                        <img className="imagemLogo" src={listaEspecialidade} alt="lista especialidade" />
                     </div>
                 </div>
                 <div className="todo_listaEspecialidade" >

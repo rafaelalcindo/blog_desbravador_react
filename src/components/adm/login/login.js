@@ -13,7 +13,7 @@ class Login extends Component {
                 <NavBar />
                 <div style={{marginRight: '0px'}} className="row" >
                     <div className="col-sm-12 menu_inicial" style={{  height: '210px'}} >
-                        <h1>teste</h1>
+                        <h2 className="inicio_texto" >Faça login no nosso sistema para mais informações.</h2>
                     </div>
                 </div>
 
