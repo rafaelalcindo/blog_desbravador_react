@@ -1,6 +1,6 @@
 export const LOGAR = 'LOGAR';
 export const LOGOUT = 'LOGOUT';
-
+export const ERROR_LOGAR = 'ERROR_LOGAR';
 export const PEGAR_DADOS_USUARIO = 'PEGAR_DADOS_USUARIO';
 
 export const AUTENTICAR_USUARIO = 'AUTENTICAR_USUARIO';

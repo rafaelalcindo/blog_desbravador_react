@@ -1,13 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import NavBar from './components/navbar/navbar';
+
 import { BrowserRouter } from 'react-router-dom';
 import RouterMap from './routes/routes';
-import TelaInicial from './components/telaInicial/telaInicial';
+
+import * as actionType from './store/actions';
+import { connect }  from 'react-redux';
 
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.props.onVerificarUsuario();
+  }
+
+  componentDidMount(){
+    
+    setTimeout(() => {
+      if(this.props.auth.authToken != null){
+        this.props.onPreencherDadosUsuarioViaToken();
+      }
+    }, 100);
+    
+  }
+
   render() {
     return (
         <BrowserRouter>
@@ -20,4 +37,19 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+      auth: state.auth,
+      usuario: state.usua
+  };
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+      onlogarUsuarioSistema: (login, senha) => dispatch(actionType.fazerLogin(login, senha)),
+      onVerificarUsuario: () => dispatch(actionType.verificarAuth()),
+      onPreencherDadosUsuarioViaToken: () => dispatch(actionType.preecherDadosUsuario())
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (App);

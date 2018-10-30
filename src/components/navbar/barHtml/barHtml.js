@@ -12,6 +12,9 @@ import {
     DropdownMenu,
     DropdownItem } from 'reactstrap';
 
+import * as actionType from '../../../store/actions';
+import { connect }  from 'react-redux';
+
 import logo_desbrava_nav from '../../../assets/imagem/navbar/logo_desbrava_nav.png';
 
 class BarHtml extends Component {
@@ -22,6 +25,14 @@ class BarHtml extends Component {
         this.state ={
             isOpen: false
         };
+
+        
+    }
+
+    componentDidMount(){
+        setTimeout(()=>{
+            console.log('usuario: ', this.props.usuario);
+        }, 800);
     }
     
     toggle() {
@@ -31,6 +42,25 @@ class BarHtml extends Component {
       }
 
     render() {
+        let options = '';
+        if(this.props.usuario.nome != null){
+            options = (
+                
+                <DropdownMenu right>
+                <DropdownItem>
+                    Minha Conta
+                </DropdownItem>
+                <DropdownItem>
+                    Meus Comentário
+                </DropdownItem>
+                <DropdownItem divider />
+                <DropdownItem>
+                    Logout
+                </DropdownItem>
+                </DropdownMenu>
+            );
+        }
+
         return(
             <div>
                 <Navbar color="primary" dark expand="md">
@@ -42,29 +72,20 @@ class BarHtml extends Component {
                         <NavItem>
                             <NavLink href="/telaCategoria" >Categorias</NavLink>
                         </NavItem>
-                        <NavItem>
-                            <NavLink href="/login" >Login</NavLink>
-                        </NavItem>
+                        { this.props.usuario.nome == null ?  <NavItem> <NavLink href="/login" >Login</NavLink> </NavItem> : null }
+                        
+
                         <NavItem>
                             <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
                         </NavItem>
+
                         <UncontrolledDropdown nav inNavbar>
-                            <DropdownToggle nav caret>
-                            Options
-                            </DropdownToggle>
-                            <DropdownMenu right>
-                            <DropdownItem>
-                                Option 1
-                            </DropdownItem>
-                            <DropdownItem>
-                                Option 2
-                            </DropdownItem>
-                            <DropdownItem divider />
-                            <DropdownItem>
-                                Reset
-                            </DropdownItem>
-                            </DropdownMenu>
+                            
+                       {this.props.usuario.nome != null ? <DropdownToggle nav caret> Opções </DropdownToggle> : null }
+                        {options}
+
                         </UncontrolledDropdown>
+
                         </Nav>
                     </Collapse>
                 </Navbar>
@@ -79,4 +100,12 @@ const styleImagem = {
     width: '80px'
 };
 
-export default BarHtml;
+const mapStateToProps = state => {
+    return {
+        auth: state.auth,
+        usuario: state.usua
+    };
+}
+
+
+export default connect(mapStateToProps)(BarHtml);

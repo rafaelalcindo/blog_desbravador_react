@@ -9,11 +9,16 @@ const initialState = {
     clube: null,
     unidade: null,
     foto_perfil: null,
+    error: ''
 }
 
 const reducer = (state = initialState, action) => {
     switch(action.type){
         case actionsTypes.LOGAR: return updateObject(state, action.logar);
+
+        case actionsTypes.ERROR_LOGAR: return updateObject(state, {error: action.error });
+
+        case actionsTypes.LOGOUT: return updateObject(state, initialState );
         
         default: return state
     }

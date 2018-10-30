@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 import NavBar from '../../navbar/navbar';
 import Rodape from '../../rodape/rodape';
@@ -18,7 +19,12 @@ class Login extends Component {
             senha: '',
             verificacao: {
                 login: true
-            }
+            },
+            login_feito: {
+                pass: false
+            },
+            mensagem: "temos campos em branco Por favor não deixe nenhum campo em branco."
+            
         }
 
         this.inputLogin = this.inputLogin.bind(this);
@@ -26,17 +32,26 @@ class Login extends Component {
 
     }
 
-   /* componentDidUpdate(){
-        console.log('usuario -log: ', this.props.usuario);
-    } */
+     componentDidMount(){
+         this.props.onVerificarUsuario();
+         setTimeout(() => {
+             if(this.props.auth != null){
+                 this.props.history.push({ pathname: '/' });
+             }
+         }, 10);
+     }
 
     fazerLogin = (event) => {
         event.preventDefault();
-        this.setState({ verificacao :  this.checarLoginSenha() });
         
-        if(this.state.verificacao.login){
-            this.props.onlogarUsuarioSistema(this.state.login, this.state.senha);
-        }
+        this.setState({ verificacao :  this.checarLoginSenha() });
+        setTimeout(() => {
+            this.setState({ login_feito : {pass: true} });
+            if(this.state.verificacao.login){
+                this.props.onlogarUsuarioSistema(this.state.login, this.state.senha);
+            }
+        }, 1000)
+        
     }
 
     inputLogin = (event) => {
@@ -52,19 +67,33 @@ class Login extends Component {
     }
 
     checarLoginSenha = () => {
-        let login = this.state.login.trim() !== '' && this.state.senha.trim() !== '';
-        return login;
+        let resu = this.state.login.trim() !== '' && this.state.senha.trim() !== '';
+        return {login: resu};
     }
 
+    
 
     render(){
 
         let alerta = '';
-        
-        if(!this.state.verificacao){
+
+        if(this.props.usuario.nome != null){
+            this.props.history.push({pathname: '/'});
+        }
+
+        if(this.props.usuario.error != '' || this.props.usuario.error != ""){
+            console.log('entrou');
             alerta = (
                 <div className="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>temos campos em branco</strong> Por favor não deixe nenhum campo em branco.
+                    {this.props.usuario.error}
+                </div>
+            );
+        }
+        
+        if(!this.state.verificacao.login){
+            alerta = (
+                <div className="alert alert-danger alert-dismissible fade show" role="alert">
+                    {this.state.mensagem}
                 </div>
             );
         }
@@ -124,13 +153,15 @@ const styleButton = {
 
 const mapStateToProps = state => {
     return {
-        usuario: state.usua
+        usuario: state.usua,
+        auth: state.auth
     };
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onlogarUsuarioSistema: (login, senha) => dispatch(actionType.fazerLogin(login, senha))
+        onlogarUsuarioSistema: (login, senha) => dispatch(actionType.fazerLogin(login, senha)),
+        onVerificarUsuario: () => dispatch(actionType.verificarAuth())
     }
 }
 

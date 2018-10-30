@@ -13,6 +13,7 @@ import thunk from 'redux-thunk';
 import usuario from './store/reducers/usuario';
 import categoria from './store/reducers/categoria';
 import especialidade from './store/reducers/especialidade';
+import auth from './store/reducers/auth';
 
 /* configurção Axios */
 
@@ -20,9 +21,10 @@ axios.defaults.baseURL = 'http://localhost:4100/';
 // Fim da Configuração Axios
 
 const rootReducer = combineReducers({
+    auth: auth,
     usua: usuario,
     espe: especialidade,
-    cate: categoria
+    cate: categoria,
 });
 
 /*const logger = store => {

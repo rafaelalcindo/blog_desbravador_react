@@ -1,6 +1,7 @@
 import * as actionsTypes from './actionsTypes';
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
+import * as auth from './auth';
 
 export const logarUsu = (logar) => {
     return {
@@ -9,10 +10,15 @@ export const logarUsu = (logar) => {
     }
 };
 
+export const removerDadosUsuario = () => {
+    return {
+        type: actionsTypes.LOGOUT,
+        logar: null
+    }
+}
+
 export const fazerLogin = (login, senha) => {
     return dispatch => {
-        console.log('login: ' , login);
-        console.log('senha: ', senha);
         let loginSystem = {
             login: login,
             senha: senha
@@ -22,7 +28,13 @@ export const fazerLogin = (login, senha) => {
             .then(resposta => {
                 let decode    = jwt.decode(resposta.data);
                 let dadosUser = decode.data[0];
-                dispatch(logarUsu(dadosUser));
+                if(decode.data[0] !== undefined){
+                    auth.autenticarUsuario(resposta.data);
+                    dispatch(logarUsu(dadosUser));
+                }else {
+                    dispatch(loginSenhaErrado());
+                }
+                
             })
             .catch(error => {
                 console.log(error);
@@ -31,3 +43,23 @@ export const fazerLogin = (login, senha) => {
     
 };
 
+export const preecherDadosUsuario = () => {
+    return dispatch => {
+        let decode = jwt.decode(localStorage.getItem("token"));
+        let dadosUser = decode.data[0];
+        
+        dispatch(logarUsu(dadosUser));
+    }
+}
+
+
+
+// =================== Errors de Login ================
+
+
+export const loginSenhaErrado = () =>{
+    return {
+        type: actionsTypes.ERROR_LOGAR,
+        error: "Erro, Login ou Senha Inválido" 
+    }
+}
