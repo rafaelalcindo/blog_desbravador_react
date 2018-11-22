@@ -32,6 +32,7 @@ class Categorias extends Component {
     }
 
     HtmlCategorias = (nome) => {
+       // console.log('nome: ', nome);
         if(nome === "Ciência e Saúde"){
             return(
                 <div className="categoria_card" >
@@ -137,11 +138,21 @@ class Categorias extends Component {
             }
         }, 1200);
         
-    
+        let htmlInput = '';
+
+        htmlInput = Object.keys(this.props.categoria)
+            .map(idKey => {
+                return [...Array(this.props.categoria[idKey])].map((ca, i) => {
+                    console.log('categoria2: ', ca);
+                } )
+            })
+
+        
+        
         return(
             <div className="row" >
                 <div className="col-sm-12" >
-                    teste
+                    { htmlInput }
                 </div>
             </div>
         );
