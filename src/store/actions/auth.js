@@ -1,6 +1,4 @@
 import * as actionsTypes from './actionsTypes';
-import * as usuario from './usuario';
-import jwt from 'jsonwebtoken';
 
 export const autenticarUsuario = (token) => {
     

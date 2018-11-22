@@ -18,7 +18,7 @@ const reducer = (state = initialState, action) => {
 
         case actionsTypes.ERROR_LOGAR: return updateObject(state, {error: action.error });
 
-        case actionsTypes.LOGOUT: return updateObject(state, initialState );
+        case actionsTypes.LOGOUT: return updateObject(state, action.logout );
         
         default: return state
     }

@@ -8,8 +8,10 @@ import mamiferos from '../../assets/logo_especialidades/estudos_da_natureza/mami
 import listaEspecialidade from '../../assets/imagem/listaEspecialidade.png';
 
 class ListaEspecialidade extends Component {
-    constructor(props){
-        super(props)
+
+    componentDidMount() {
+        let param = this.props.match.params.categoria;
+        console.log('params: ', param);
     }
     
 

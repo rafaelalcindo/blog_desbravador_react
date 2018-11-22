@@ -1,17 +1,20 @@
 import React , {Component } from 'react';
+import { connect } from 'react-redux';
 
 import NavBar from '../navbar/navbar';
 import Rodape from '../rodape/rodape';
 
 import Categoria from './categoria/categorias';
+import * as actionType from '../../store/actions';
 
 import categorias_logo_superior from '../../assets/imagem/categorias_logo_superior.png';
 
 import './telaCategoria.css';
 
 class TelaCategoria extends Component {
-    constructor(props){
-        super(props)
+
+    componentDidMount() {
+        this.props.onPegarCategorias();
     }
 
     render(){
@@ -31,7 +34,7 @@ class TelaCategoria extends Component {
                             <div className="tituloCategoriaDiv" >
                                 <h3 className="tituloCategoria" >Categorias</h3>
                                 <hr/>
-                                <Categoria />
+                                <Categoria categoria={this.props.categoria} />
                             </div>
                         </div>   
                     </div>
@@ -43,4 +46,16 @@ class TelaCategoria extends Component {
     }
 }
 
-export default TelaCategoria;
+const mapStateToProps = state => {
+    return {
+        categoria: state.cate
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onPegarCategorias: () => dispatch(actionType.pegarEspecialidadesCategorias())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (TelaCategoria);

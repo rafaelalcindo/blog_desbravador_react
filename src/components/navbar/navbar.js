@@ -4,10 +4,6 @@ import BarHtml from './barHtml/barHtml';
 
 class NavBar extends Component {
 
-    constructor() {
-        super();
-    }
-
     render() {
         return(
             <Aux>

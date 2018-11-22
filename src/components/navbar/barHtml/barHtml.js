@@ -12,8 +12,9 @@ import {
     DropdownMenu,
     DropdownItem } from 'reactstrap';
 
-import * as actionType from '../../../store/actions';
+//import * as actionType from '../../../store/actions';
 import { connect }  from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import logo_desbrava_nav from '../../../assets/imagem/navbar/logo_desbrava_nav.png';
 
@@ -55,7 +56,7 @@ class BarHtml extends Component {
                 </DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem>
-                    Logout
+                    <Link to="/logout" >Logout</Link>
                 </DropdownItem>
                 </DropdownMenu>
             );

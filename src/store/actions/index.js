@@ -1,8 +1,14 @@
 export {
     fazerLogin,
-    preecherDadosUsuario
+    preecherDadosUsuario,
+    removerDadosUsuario
 } from './usuario';
 
 export {
-    verificarAuth
+    verificarAuth,
+    logoutUsuario
 } from './auth';
+
+export {
+    pegarEspecialidadesCategorias
+} from './categoria';

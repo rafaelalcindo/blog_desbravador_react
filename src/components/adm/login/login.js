@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 
 import NavBar from '../../navbar/navbar';
 import Rodape from '../../rodape/rodape';
@@ -81,7 +80,7 @@ class Login extends Component {
             this.props.history.push({pathname: '/'});
         }
 
-        if(this.props.usuario.error != '' || this.props.usuario.error != ""){
+        if(this.props.usuario.error !== '' || this.props.usuario.error !== ""){
             console.log('entrou');
             alerta = (
                 <div className="alert alert-danger alert-dismissible fade show" role="alert">
@@ -154,7 +153,7 @@ const styleButton = {
 const mapStateToProps = state => {
     return {
         usuario: state.usua,
-        auth: state.auth
+        auth: state.auth.authToken
     };
 }
 

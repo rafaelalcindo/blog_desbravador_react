@@ -7,9 +7,6 @@ import './cadaEspecialidade.css';
 import mamiferos from '../../assets/logo_especialidades/estudos_da_natureza/mamiferos.png';
 
 class CadaEspecialidade extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render(){
         return(

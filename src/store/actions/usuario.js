@@ -11,9 +11,10 @@ export const logarUsu = (logar) => {
 };
 
 export const removerDadosUsuario = () => {
+    
     return {
         type: actionsTypes.LOGOUT,
-        logar: null
+        logout: initialUserState
     }
 }
 
@@ -63,3 +64,17 @@ export const loginSenhaErrado = () =>{
         error: "Erro, Login ou Senha Inválido" 
     }
 }
+
+// Resetart Usuario LogOut
+
+const initialUserState = {
+    nome: null,
+    sobrenome: null,
+    privilegio: 0,
+    descricao: null,
+    clube: null,
+    unidade: null,
+    foto_perfil: null,
+    error: ''
+}
+

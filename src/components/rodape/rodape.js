@@ -9,10 +9,6 @@ import twitter_logo from '../../assets/rodape/logo_twitter.png';
 
 class Rodape extends Component {
 
-    constructor(props){
-        super(props)
-    }
-
     render() {
         return(
             <div className="todoRodape" >
