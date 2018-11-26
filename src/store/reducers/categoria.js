@@ -12,6 +12,7 @@ const reducer = (state = initialState, action) => {
     switch(action.type){
 
         case actionTypes.LISTA_ESPECIALIDADE_CATEGORIAS: return updateObject(state, action.espeCategorias);
+        case actionTypes.ESVAZIAR_CATEGORIAS: return updateObject(state, action.emptyCategoria)
 
         default:
             return state

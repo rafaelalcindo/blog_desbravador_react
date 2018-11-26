@@ -8,6 +8,13 @@ export const especialidadeToProps = (categorias) => {
     }
 }
 
+export const esvaziarCategorias = () => {
+    return {
+        type: actionType.ESVAZIAR_CATEGORIAS,
+        emptyCategoria: initialStateCategoria
+    }
+}
+
 
 export const pegarEspecialidadesCategorias = () => {
     return dispatch => {
@@ -18,4 +25,28 @@ export const pegarEspecialidadesCategorias = () => {
             .catch(error => console.log('error', error));
     }
 }
+
+export const esvaziarCategoriasEspeci = () => {
+    return dispatch => {
+        dispatch(esvaziarCategorias());
+    }
+}
+
+export const pegarTodasEspecialidadesDeCategoria = (id) => {
+    return dispatch => {
+        axios.get('/blog/categorias/listarUmaCategoria/'+id)
+            .then(resposta => {
+                dispatch(especialidadeToProps(resposta.data))
+            })
+            .catch(error => console.log('error: ', error));
+    }
+}
+
+
+const initialStateCategoria = [{
+    _id: null,
+    categoria: null,
+    cor: null,
+    especialidade: []
+}];
 

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import NavBar from '../navbar/navbar';
 import Rodape from '../rodape/rodape';
+
+import * as actionType from '../../store/actions';
 
 import './listaEspecialidade.css';
 
@@ -12,6 +16,13 @@ class ListaEspecialidade extends Component {
     componentDidMount() {
         let param = this.props.match.params.categoria;
         console.log('params: ', param);
+        this.props.onEsvaziarCategoria();
+        this.props.onPegarCategoria(param);
+
+        setTimeout(() => {
+            console.log('resultado: ', this.props.categoria);
+        }, 1000);
+
     }
     
 
@@ -83,4 +94,17 @@ class ListaEspecialidade extends Component {
 
 }
 
-export default ListaEspecialidade;
+const mapStateToProps = state => {
+    return {
+        categoria: state.cate
+    }
+}
+
+const mapDispatchToProps =  dispatch => {
+    return {
+        onEsvaziarCategoria: () => dispatch(actionType.esvaziarCategoriasEspeci()),
+        onPegarCategoria: (id) => dispatch(actionType.pegarTodasEspecialidadesDeCategoria(id))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (ListaEspecialidade);

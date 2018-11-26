@@ -10,5 +10,7 @@ export {
 } from './auth';
 
 export {
-    pegarEspecialidadesCategorias
+    pegarEspecialidadesCategorias,
+    pegarTodasEspecialidadesDeCategoria,
+    esvaziarCategoriasEspeci
 } from './categoria';

@@ -13,8 +13,21 @@ import './telaCategoria.css';
 
 class TelaCategoria extends Component {
 
+    constructor(props){
+        super(props);
+        this.state = {
+            redirecionar: false,
+            linkId: ''
+        }
+    }
+
     componentDidMount() {
         this.props.onPegarCategorias();
+    }
+
+    redirectParaOutraPagina = (id) => {
+        console.log('entrou redi: ', id);
+        this.props.history.push('/listaEspecialidade/'+id);
     }
 
     render(){
@@ -34,7 +47,7 @@ class TelaCategoria extends Component {
                             <div className="tituloCategoriaDiv" >
                                 <h3 className="tituloCategoria" >Categorias</h3>
                                 <hr/>
-                                <Categoria categoria={this.props.categoria} />
+                                <Categoria categoria={this.props.categoria} redirecionar={ this.redirectParaOutraPagina} />
                             </div>
                         </div>   
                     </div>

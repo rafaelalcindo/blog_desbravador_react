@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Redirect} from 'react-router-dom';
 
 import ADRA from '../../../assets/categorias/ADRA.jpg';
 import Habilidades_manuais from '../../../assets/categorias/habilidades_manuais.jpg';
@@ -23,19 +24,21 @@ class Categorias extends Component {
 
     componentDidMount(){
         setTimeout(() => {
-            console.log('teste obj', this.props.categoria);
+            //console.log('teste obj', this.props.categoria);
            let teste = [ ...Array(this.props.categoria) ].map(cat => {
-               console.log('cat',cat);
            })
-           console.log('teste array', teste)
         }, 1400);
     }
 
-    HtmlCategorias = (nome) => {
+    redirectCienciaSaude = (id) => {
+        //this.props.redirecionar(id);
+    }
+
+    HtmlCategorias = (nome, id) => {
        // console.log('nome: ', nome);
         if(nome === "Ciência e Saúde"){
             return(
-                <div className="categoria_card" >
+                <div className="categoria_card" onClick={ () => this.props.redirecionar(id) }  >
                     <img className="categorImg" src={Ciencia_saude} alt="Ciência e Saúde" />
                     <div className="nomeCategoria" style={{backgroundImage: 'linear-gradient(to bottom right, #ad33ff, #4c0080)', paddingTop: '10%'}} >
                         <h1>Ciência e Saúde</h1>
@@ -44,7 +47,7 @@ class Categorias extends Component {
             );
         }else if(nome === "ADRA"){
             return (
-                <div className="categoria_card" >
+                <div className="categoria_card"  onClick={ () => this.props.redirecionar(id) } >
                     <img className="categorImg" src={ADRA} alt="categoria Adra" />
                     <div className="nomeCategoria" >
                         <h1>ADRA</h1>
@@ -53,7 +56,7 @@ class Categorias extends Component {
             );
         }else if(nome === "Habilidades Manuais"){
             return (
-                <div className="categoria_card" >
+                <div className="categoria_card" onClick={ () => this.props.redirecionar(id) } >
                     <div className="nomeCategoria2" >
                         <h1>Artes e Habilidades Manuais</h1>
                     </div>
@@ -62,7 +65,7 @@ class Categorias extends Component {
             );
         }else if(nome === "Atividades Agricolas") {
             return (
-                <div className="categoria_card" >
+                <div className="categoria_card" onClick={ () => this.props.redirecionar(id) } >
                     <img className="categorImg" src={Atividades_Agricola} alt="Atividades Agricola" />
                     <div className="nomeCategoria" style={{backgroundImage: 'linear-gradient(to bottom right, #c68c53, #604020)', paddingTop: '7%'}} >
                         <h1>Atividades Agricola</h1>
@@ -80,7 +83,7 @@ class Categorias extends Component {
             );
         }else if(nome === "Atividades Recreativas"){
             return(
-                <div className="categoria_card" >
+                <div className="categoria_card" onClick={ () => this.props.redirecionar(id) } >
                     <div className="nomeCategoria2" style={{backgroundImage: 'linear-gradient(to bottom right, #00ff00, #006600)', paddingTop: '7%' }} >
                         <h1>Atividades Recreativas</h1>
                     </div>
@@ -89,7 +92,7 @@ class Categorias extends Component {
             );
         }else if(nome === "Atividades Profissionáis"){
             return (
-                <div className="categoria_card" >
+                <div className="categoria_card" onClick={ () => this.props.redirecionar(id) } >
                     <img className="categorImg" src={Atividades_profissinais} alt="Atividades Profissionais" />
                     <div className="nomeCategoria" style={{backgroundImage: 'linear-gradient(to bottom right, #ff4d4d, #b30000)', paddingTop: '7%'}} >
                         <h1>Atividades Profissionáis</h1>
@@ -99,7 +102,7 @@ class Categorias extends Component {
             );
         }else if(nome === "Estudos da Natureza"){
             return (
-                <div className="categoria_card" >
+                <div className="categoria_card" onClick={ () => this.props.redirecionar(id) } >
                     <div className="nomeCategoria2" style={{backgroundImage: 'linear-gradient(to bottom right, #a6a6a6, #333333)', paddingTop: '7%' }} >
                         <h1>Estudos da Natureza</h1>
                     </div>
@@ -108,7 +111,7 @@ class Categorias extends Component {
             );
         }else if(nome === "Habilidade Doméstica"){
             return (
-                <div className="categoria_card" >
+                <div className="categoria_card" onClick={ () => this.props.redirecionar(id) } >
                     <img className="categorImg" src={Habilidade_domestica} alt="Habilidades Domésticas" />
                     <div className="nomeCategoria" style={{backgroundImage: 'linear-gradient(to bottom right, #ffad33, #995c00)', paddingTop: '7%'}} >
                         <h1>Habilidades Domésticas</h1>
@@ -118,7 +121,7 @@ class Categorias extends Component {
             
         }else if(nome === "Mestrados") {
             return (
-                <div className="categoria_card" >
+                <div className="categoria_card" onClick={ () => this.props.redirecionar(id) } >
                     <div className="nomeCategoria2" style={{backgroundImage: 'linear-gradient(to bottom right, #4d4d4d, #0d0d0d)', paddingTop: '10%' }} >
                         <h1>Mestrados</h1>
                     </div>
@@ -144,6 +147,7 @@ class Categorias extends Component {
             .map(idKey => {
                 return [...Array(this.props.categoria[idKey])].map((ca, i) => {
                     console.log('categoria2: ', ca);
+                    return this.HtmlCategorias(ca.categoria, ca._id);
                 } )
             })
 
@@ -153,6 +157,7 @@ class Categorias extends Component {
             <div className="row" >
                 <div className="col-sm-12" >
                     { htmlInput }
+                    
                 </div>
             </div>
         );
