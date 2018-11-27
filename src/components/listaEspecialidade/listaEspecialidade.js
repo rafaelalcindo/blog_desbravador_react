@@ -20,13 +20,51 @@ class ListaEspecialidade extends Component {
         this.props.onPegarCategoria(param);
 
         setTimeout(() => {
-            console.log('resultado: ', this.props.categoria);
+            console.log('resultado: ', this.props.categoria.especialidade);
         }, 1000);
 
     }
     
 
     render() {
+    
+       let HtmlInputEspecialidade = '';
+
+     
+
+        if(this.props.categoria.especialidade !== null && this.props.categoria.especialidade !== undefined) {
+            HtmlInputEspecialidade = Object.keys(this.props.categoria.especialidade)
+                .map(idKey => {
+                    return [...Array(this.props.categoria.especialidade[idKey])].map((ca, i) => {
+                        
+                        return (
+                            <div className="col-sm-3"  >
+                                <img className="imagemEspecialidade" src={ca.foto_especialidade} alt={ca.titulo} />
+                                <h4>{ca.titulo}</h4>
+                            </div> 
+                        );
+                    })
+                });
+                
+        }
+
+        
+
+    
+
+      /* HtmlInputEspecialidade = Object.keys(this.props.categoria.especialidade)
+            .map(idKey => {
+                return [...Array(this.props.categoria.especialidade[idKey])].map((ca, i) => {
+                    return (
+                        <div className="col-sm-3" >
+                            <img className="imagemEspecialidade" src={mamiferos} alt="especialidades" />
+                            <h4>{ ca.titulo }</h4>
+                        </div> 
+                    );
+                })
+            })
+            */
+        
         return(
             <div>
                 <NavBar/>
@@ -42,6 +80,8 @@ class ListaEspecialidade extends Component {
                     <h2>Especialidades</h2><br/>
                     <hr/><br/><br/>
                     <div className="row">
+
+                        { HtmlInputEspecialidade } 
 
                         <div className="col-sm-3" >
                             <img className="imagemEspecialidade" src={mamiferos} alt="especialidades" />

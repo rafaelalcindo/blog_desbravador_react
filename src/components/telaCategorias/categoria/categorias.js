@@ -146,7 +146,7 @@ class Categorias extends Component {
         htmlInput = Object.keys(this.props.categoria)
             .map(idKey => {
                 return [...Array(this.props.categoria[idKey])].map((ca, i) => {
-                    console.log('categoria2: ', ca);
+                    //console.log('categoria2: ', ca);
                     return this.HtmlCategorias(ca.categoria, ca._id);
                 } )
             })
